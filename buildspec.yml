@@ -1,0 +1,25 @@
+version: 0.2
+env:
+  variables:
+    IMAGE_REPO_NAME: coworking-space-microservice
+    IMAGE_TAG: v1
+    AWS_DEFAULT_REGION: us-east-1
+    AWS_ACCOUNT_ID: 785516211195
+    CODE_BUILD_NUMBER: 1
+    DB_PASSWORD: 4OuQF3kYMX
+phases:
+  pre_build:
+    commands:
+      - echo Logging into ECR
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+  build:
+    commands:
+      - echo Starting build at `date`
+      - echo Building the Docker image...
+      - docker build --build-arg DB_USERNAME=postgres --build-arg DB_PASSWORD=$DB_PASSWORD -t $IMAGE_REPO_NAME:$CODE_BUILD_NUMBER ./app/.
+      - docker tag $IMAGE_REPO_NAME:$CODE_BUILD_NUMBER $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODE_BUILD_NUMBER
+  post_build:
+    commands:
+      - echo Completed build at `date`
+      - echo Pushing the Docker image...
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODE_BUILD_NUMBER
