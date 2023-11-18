@@ -15,7 +15,7 @@ spec:
         service: backend-coworking-space
     spec:
       containers:
-        - image: 785516211195.dkr.ecr.us-east-1.amazonaws.com/coworking-space-microservice:latest
+        - image: 785516211195.dkr.ecr.us-east-1.amazonaws.com/coworking-space-microservice:8
           name: backend-coworking-space
           imagePullPolicy: Always
           ports:

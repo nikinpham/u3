@@ -5,7 +5,7 @@ env:
     IMAGE_TAG: v1
     AWS_DEFAULT_REGION: us-east-1
     AWS_ACCOUNT_ID: 785516211195
-    CODE_BUILD_NUMBER: 7
+    CODE_BUILD_NUMBER: 8
     DB_PASSWORD: bRjpmbbaYc
 phases:
   pre_build:
