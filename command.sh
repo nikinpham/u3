@@ -20,7 +20,7 @@ kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPA
 kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=$POSTGRES_PASSWORD psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/2_seed_users.sql
 kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=$POSTGRES_PASSWORD psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/3_seed_tokens.sql
 
-DB_USERNAME=postgres DB_PASSWORD=$POSTGRES_PASSWORD python app.py
+DB_USERNAME=postgres DB_PASSWORD=bRjpmbbaYc python app.py
 
 # Expose the Backend API to the Internet
 kubectl expose deployment backend-coworking-space --type=LoadBalancer --name=publicbackend
