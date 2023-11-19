@@ -2,10 +2,10 @@
 FROM python:3.11.5-bookworm
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /analytics
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY . /analytics
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
