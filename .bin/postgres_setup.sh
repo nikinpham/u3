@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Add the Bitnami Helm repository
-helm repo add $1 https://charts.bitnami.com/bitnami && helm repo update &&\
+helm repo add udacity-prj3 https://charts.bitnami.com/bitnami && helm repo update &&\
 
 # Install PostgreSQL
-helm install --set primary.persistence.enabled=false $2 $1/postgresql
+helm install --set primary.persistence.enabled=false udacity-postgres udacity-prj3/postgresql
