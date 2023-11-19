@@ -1,5 +1,5 @@
 export POSTGRES_PASSWORD=$(kubectl get secret --namespace default udacity-postgre-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
-    echo $POSTGRES_PASSWORD
+echo $POSTGRES_PASSWORD
 
 # Connecting Via Port Forwarding
 kubectl port-forward --namespace default svc/udacity1-postgresql 5432:5432 & 
