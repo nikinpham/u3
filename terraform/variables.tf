@@ -45,7 +45,7 @@ variable "eks_worker_node" {
 
 variable "git_repository_url" {
   type    = string
-  default = "https://github.com/binhtran9798/udacity-cloud-devops-project3"
+  default = "https://github.com/nikinpham/u3"
 }
 
 variable "github_personal_access_token" {
