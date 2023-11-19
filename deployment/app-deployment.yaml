@@ -2,36 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: backend-coworking-space
-  name: backend-coworking-space
+    service: backend-server
+  name: backend-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: backend-coworking-space
+      service: backend-server
   template:
     metadata:
       labels:
-        service: backend-coworking-space
+        service: backend-server
     spec:
       containers:
-        - image: 785516211195.dkr.ecr.us-east-1.amazonaws.com/coworking-space-microservice:10
-          name: backend-coworking-space
+        - image: 785516211195.dkr.ecr.us-east-1.amazonaws.com/project3-ecr:latest
+          name: backend-server
           imagePullPolicy: Always
           ports:
             - containerPort: 5153
-          livenessProbe:
-            httpGet:
-              path: /health_check
-              port: 5153
-            initialDelaySeconds: 5
-            timeoutSeconds: 2
-          readinessProbe:
-            httpGet:
-              path: /readiness_check
-              port: 5153
-            initialDelaySeconds: 5
-            timeoutSeconds: 5
           resources:
             requests:
               memory: "1000Mi"
@@ -39,6 +27,18 @@ spec:
             limits:
               memory: "2000Mi"
               cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /readiness_check
+              port: 5153
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health_check
+              port: 5153
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
           envFrom:
             - secretRef:
                 name: env-secret

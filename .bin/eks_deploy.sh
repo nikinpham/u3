@@ -6,4 +6,4 @@ kubectl apply -f ./deployment/env-configmap.yaml
 kubectl apply -f ./deployment/app-deployment.yaml
 
 ## Service
-kubectl apply -f ./deployment/app-services.yaml
+kubectl apply -f ./deployment/app-service.yaml
