@@ -1,2 +1,2 @@
 #!/bin/bash
-aws eks --region us-east-1 update-kubeconfig --name udacity-project3
+aws eks --region us-east-1 update-kubeconfig --name up3-cluster

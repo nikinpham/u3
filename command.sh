@@ -16,18 +16,18 @@ kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 &
 
 kubectl port-forward svc/udacity-postgresql 5432:5432
 
-kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=bRjpmbbaYc psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/1_create_tables.sql
-kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=bRjpmbbaYc psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/2_seed_users.sql
-kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=bRjpmbbaYc psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/3_seed_tokens.sql
+kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=lEwS6UEs7M psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/1_create_tables.sql
+kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=lEwS6UEs7M psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/2_seed_users.sql
+kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=lEwS6UEs7M psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/3_seed_tokens.sql
 
-DB_USERNAME=postgres DB_PASSWORD=bRjpmbbaYc python app.py
+DB_USERNAME=postgres DB_PASSWORD=lEwS6UEs7M python app.py
 
 # # Expose the Backend API to the Internet
 kubectl expose deployment backend-coworking-space --type=LoadBalancer --name=publicbackend
 
 kubectl exec --stdin --tty postgres-postgresql-0 -- /bin/bash
 
-ClusterName=udacity-project3
+ClusterName=up3-cluster
 RegionName=us-east-1
 FluentBitHttpPort='2020'
 FluentBitReadFromHead='Off'
