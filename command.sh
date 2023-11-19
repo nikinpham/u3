@@ -16,9 +16,9 @@ kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 &
 
 kubectl port-forward svc/udacity-postgresql 5432:5432
 
-# kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=$POSTGRES_PASSWORD psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/1_create_tables.sql
-# kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=$POSTGRES_PASSWORD psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/2_seed_users.sql
-# kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=$POSTGRES_PASSWORD psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/3_seed_tokens.sql
+kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=bRjpmbbaYc psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/1_create_tables.sql
+kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=bRjpmbbaYc psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/2_seed_users.sql
+kubectl port-forward --namespace default svc/udacity-postgresql 5432:5432 & PGPASSWORD=bRjpmbbaYc psql --host 127.0.0.1 -U postgres -d postgres -p 5432 < ./db/3_seed_tokens.sql
 
 DB_USERNAME=postgres DB_PASSWORD=bRjpmbbaYc python app.py
 
