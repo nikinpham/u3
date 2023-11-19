@@ -3,7 +3,6 @@ env:
   variables:
     IMAGE_REPO_NAME: project3-ecr
     IMAGE_TAG: latest
-    AWS_DEFAULT_REGION: us-east-1
 phases:
   pre_build:
     commands:
