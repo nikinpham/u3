@@ -1,4 +1,3 @@
-# The password can be retrieved with the following command:
 export POSTGRES_PASSWORD=$(kubectl get secret --namespace default udacity-postgre-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
     echo $POSTGRES_PASSWORD
 
