@@ -2,7 +2,10 @@ version: 0.2
 env:
   variables:
     IMAGE_REPO_NAME: coworking-space-microservice
+    AWS_DEFAULT_REGION: us-east-1
+    AWS_ACCOUNT_ID: 785516211195
     CODE_BUILD_NUMBER: 10
+    DB_PASSWORD: lEwS6UEs7M
 phases:
   pre_build:
     commands:
