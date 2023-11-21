@@ -1,4 +1,4 @@
-DB_USERNAME=postgres DB_PASSWORD=6bLJ8FcFyx python app.py
+DB_USERNAME=postgres DB_PASSWORD=JrSzpDeMqM python app.py
 
 kubectl run udacity1-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:16.1.0-debian-11-r6 --env="PGPASSWORD=$POSTGRES_PASSWORD" \
       --command -- psql --host udacity1-postgresql -U postgres -d postgres -p 5432
