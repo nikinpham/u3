@@ -1,12 +1,12 @@
-DB_USERNAME=postgres DB_PASSWORD=JrSzpDeMqM python app.py
+# DB_USERNAME=postgres DB_PASSWORD=JrSzpDeMqM python app.py
 
-kubectl run udacity1-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:16.1.0-debian-11-r6 --env="PGPASSWORD=$POSTGRES_PASSWORD" \
-      --command -- psql --host udacity1-postgresql -U postgres -d postgres -p 5432
+# kubectl run udacity1-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:16.1.0-debian-11-r6 --env="PGPASSWORD=$POSTGRES_PASSWORD" \
+#       --command -- psql --host udacity1-postgresql -U postgres -d postgres -p 5432
 
-kubectl port-forward --namespace default svc/udacity1-postgresql 5432:5432 &
-    PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
+# kubectl port-forward --namespace default svc/udacity1-postgresql 5432:5432 &
+#     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
 
-kubectl exec --stdin --tty postgres-postgresql-0 -- /bin/bash
+kubectl exec --stdin --tty udacity1-postgresql-client -- /bin/bash
 
 ClusterName=udacity-prj3-eks
 RegionName=us-east-1
